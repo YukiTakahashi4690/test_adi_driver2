@@ -36,7 +36,7 @@
 #include <string>
 // #include "std_srvs/Trigger.h"
 
-#include "test_adi_driver2/adis16465.h"
+#include "adi_driver2/adis16470.h"
 
 namespace adi_driver2 {
 class ImuNode : public rclcpp::Node {
@@ -51,7 +51,7 @@ public:
 
   bool loop(void);
 
-  Adis16465 imu;
+  Adis16470 imu;
   rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr imu_data_pub_;
   rclcpp::Publisher<sensor_msgs::msg::Temperature>::SharedPtr temp_data_pub_;
   //   ros::ServiceServer bias_srv_;

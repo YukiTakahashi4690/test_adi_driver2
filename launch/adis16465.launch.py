@@ -10,7 +10,7 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
-    dir = '/home/taka4/ros2_ws/src/adi_driver2'
+    dir = '/home/taka4/ros2_ws/src/test_adi_driver2'
     
     namespace = LaunchConfiguration('namespace')
     with_filter = LaunchConfiguration('with_filter')
@@ -24,10 +24,10 @@ def generate_launch_description():
     publish_tf = LaunchConfiguration('publish_tf')
     publish_debug_topics = LaunchConfiguration('publish_debug_topics')
 
-    xacro_file_name = 'orne_gamma.urdf.xacro'
-    xacro_file_path = os.path.join(urdf_file_path, 'gamma', xacro_file_name)
     urdf_file_name = 'adis16465_breakout.urdf'
-    urdf_file_path = '/home/taka4/ros2_ws/src/ari_driver2/urdf'
+    xacro_file_name = 'orne_gamma.urdf.xacro'
+    urdf_file_path = '/home/taka4/ros2_ws/src/test_ari_driver2/urdf'
+    xacro_file_path = os.path.join(urdf_file_path, 'gamma', xacro_file_name)
 
     declare_nameapace_cmd = DeclareLaunchArgument(
         'namespace', 
@@ -96,11 +96,11 @@ def generate_launch_description():
     )
 
     configured_params = LaunchConfiguration(
-        device_source_file = device, 
-        flame_id_source_file = flame_id, 
-        burst_read_source_file = burst_read, 
-        publish_temperature_source_file = publish_temperature, 
-        rate_source_file = rate
+        # device_source_file = device, 
+        # flame_id_source_file = flame_id, 
+        # burst_read_source_file = burst_read, 
+        # publish_temperature_source_file = publish_temperature, 
+        # rate_source_file = rate
     )
 
     IncludeLaunchDescription(
@@ -116,7 +116,7 @@ def generate_launch_description():
         executable = 'adis16465_node', 
         name = 'adis16465_node', 
         outout = 'screen', 
-        parameters = [configured_params]
+        # parameters = [configured_params]
     )
 
     #<param>if
